@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  server:
+    build: .
+    volumes:
+      - /mnt/problems:/problems
+    cap_add:
+      - SYS_PTRACE
+    restart: always
