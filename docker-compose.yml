@@ -2,6 +2,7 @@ version: "3.9"
 services:
   server:
     build: .
+    command: run "$BRIDGE_ADDRESS" "$JUDGE_NAME" "$JUDGE_KEY"
     volumes:
       - /mnt/problems:/problems
     cap_add:
