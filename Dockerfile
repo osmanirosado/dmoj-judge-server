@@ -1,4 +1,4 @@
-FROM dmoj/runtimes-tier3
+FROM dmoj/runtimes-tier3:latest
 
 COPY pip.conf /etc/pip.conf
 
