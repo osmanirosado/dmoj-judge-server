@@ -5,9 +5,10 @@ services:
       dockerfile: Dockerfile
       context: .
     image: dmoj/judge-tier3:latest
-    command: run -c /problems/judge.yml "${BRIDGE_ADDRESS:-10.12.101.21}"
+    command: run -c /mnt/config/judge.yml "${BRIDGE_ADDRESS:-10.12.101.21}"
     volumes:
-      - ./problems:/problems:ro
+      - /mnt/dmoj/config:/mnt/config:ro
+      - /mnt/dmoj/problems:/mnt/problems:ro
     cap_add:
       - SYS_PTRACE
     restart: always
