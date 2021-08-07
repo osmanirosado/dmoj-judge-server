@@ -10,8 +10,7 @@ RUN mkdir /judge /problems && cd /judge && \
 	. ~judge/.profile && \
 	runuser -u judge -w PATH -- dmoj-autoconf -V > /judge-runtime-paths.yml && \
 	echo '  crt_x86_in_lib32: true' >> /judge-runtime-paths.yml && \
-    mkdir /mnt/config /mnt/problems && \
-    echo 'problem_storage_root: [ "/mnt/problems" ]' > /mnt/config/judge.yml && \
-    cat /judge-runtime-paths.yml >> /mnt/config/judge.yml
+    echo 'problem_storage_root: [ "/problems" ]' > /judge.yml && \
+    cat /judge-runtime-paths.yml >> /judge.yml
 
 ENTRYPOINT ["/judge/.docker/entry"]
