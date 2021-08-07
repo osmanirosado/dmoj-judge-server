@@ -1,14 +1,14 @@
 version: "3.9"
 services:
-  judge:
+  app:
     build:
       dockerfile: Dockerfile
       context: .
-    image: dmoj/judge-tier3:latest
+    image: dmoj/judge-tier3:${IMAGE_TAG:-latest}
     command: run -c /mnt/config/judge.yml "${BRIDGE_ADDRESS:-10.12.101.21}"
     volumes:
-      - /mnt/dmoj/config:/mnt/config:ro
-      - /mnt/dmoj/problems:/mnt/problems:ro
+      - ./config:/mnt/config:ro
+      - ${PROBLEMS_DIR:-/mnt/dmoj/problems}:/mnt/problems:ro
     cap_add:
       - SYS_PTRACE
     restart: always
