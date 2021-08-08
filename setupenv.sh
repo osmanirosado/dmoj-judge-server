@@ -23,6 +23,7 @@ IMAGE_TAG=$IMAGE_TAG
 BRIDGE_ADDRESS=10.12.101.21
 
 JUDGE_NAME=main-judge-$i
+# Define the judge key
 JUDGE_KEY=
 
 PROBLEMS_DIR=/mnt/dmoj/problems
