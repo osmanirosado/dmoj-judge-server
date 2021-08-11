@@ -13,12 +13,13 @@ run) command=(dmoj) ;;
 cli) command=(dmoj-cli) ;;
 test) command=(python3 -- -m dmoj.testsuite testsuite) ;;
 *)
-  #echo "Invalid command, must be one of [run, cli, test]" 1>&2
-  #exit 1
-  command=("$1")
+  echo "Invalid command, must be one of [run, cli, test]" 1>&2
+  exit 1
   ;;
 esac
 
 shift
 . ~judge/.profile
+
+set -x # to show the following command
 runuser -u judge "${command[@]}" -- "$@"
