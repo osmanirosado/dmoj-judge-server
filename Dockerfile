@@ -14,4 +14,5 @@ RUN mkdir /judge /problems && cd /judge && \
     echo 'problem_storage_root: [ "/problems" ]' > /judge.yml && \
     cat /judge-runtime-paths.yml >> /judge.yml
 
-ENTRYPOINT ["/judge/.docker/entry"]
+COPY entry /entry
+ENTRYPOINT ["/entry"]
