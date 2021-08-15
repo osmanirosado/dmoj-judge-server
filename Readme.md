@@ -4,13 +4,21 @@ Docker compose stack for running the [dmoj judge](https://github.com/DMOJ/judge-
 
 ## Initialization
 
-1. Generate the environment files (`.env`) and the aliases.
+1. Generate the configuration files for the scripts.
 
 ```shell
-bash setupenv.sh
+bash setup-conf.sh
 ```
 
-2. Show the project directory tree to see the new files created 
+2. Generate the environment files (`.env`) and the aliases.
+
+```shell
+bash init-judges.sh
+```
+
+The default configuration for this command can be changed in the `init-judges.conf` file.
+
+3. Show the project directory tree to see the new files created 
 by the `setupenv.sh` script. 
 Using `-a` to show hidden files and `-I` to ignore the git hidden directory. 
 
@@ -18,7 +26,7 @@ Using `-a` to show hidden files and `-I` to ignore the git hidden directory.
 tree -a -I .git .
 ```
 
-3. Load the aliases in the current shell session
+4. Load the aliases in the current shell session
 
 ```shell
 source bash_aliases

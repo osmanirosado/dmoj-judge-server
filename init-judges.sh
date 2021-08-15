@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-JUDGE_NUMBER=3
-JUDGE_NAME_PREFIX='main-judge-'
-
-IMAGE_TAG=latest
-BRIDGE_ADDRESS=10.12.101.21
-PROBLEMS_DIR=/mnt/dmoj/problems
+CONF_FILE='init-judges.conf'
+if [[ -f "$CONF_FILE" ]]
+then
+    source $CONF_FILE
+else
+    echo "The $CONF_FILE does not exists. Run 'setup-conf.sh' script to create it."
+    exit 1
+fi
 
 FILE=".env"
 if [[ ! -f "$FILE" ]]
@@ -50,3 +52,5 @@ EOF
       echo "-> The $FILE file exists"
     fi
 done
+
+exit 0
