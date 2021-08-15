@@ -25,7 +25,7 @@ echo "" > $ALIASES_FILE
 for ((i = 1 ; i <= "$JUDGE_NUMBER" ; i++))
 do
     NAME="judge-$i"
-    cat >>"$ALIASES_FILE" <<<"alias judge${i}dc='docker-compose --project-directory $PWD/$NAME -f $PWD/docker-compose.yml'"
+    cat >>"$ALIASES_FILE" <<<"alias judge${i}dc='docker-compose --project-directory $PWD/$NAME -f $PWD/judge.yml'"
 
     mkdir -p "$NAME"
 
