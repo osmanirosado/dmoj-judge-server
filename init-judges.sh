@@ -1,24 +1,26 @@
 #!/usr/bin/env bash
 
+cd "$(dirname "$0")" || exit 1
+
 CONF_FILE='init-judges.conf'
 if [[ -f "$CONF_FILE" ]]
 then
     source $CONF_FILE
 else
-    echo "The $CONF_FILE does not exists. Run 'setup-conf.sh' script to create it."
+    echo "[error] The $CONF_FILE does not exists. Run 'setup-conf.sh' script to create it."
     exit 1
 fi
 
 FILE=".env"
 if [[ ! -f "$FILE" ]]
 then
-    echo "-> Setting up the $FILE file"
+    echo "[info] Setting up the $FILE file"
     cat > .env <<EOF
 IMAGE_TAG=$IMAGE_TAG
 
 EOF
 else
-    echo "-> The $FILE file exists"
+    echo "[warn] The $FILE file exists"
 fi
 
 ALIASES_FILE=bash_aliases
@@ -37,7 +39,7 @@ do
     FILE="$NAME/.env"
     if [[ ! -f "$FILE" ]]
     then
-    echo "-> Setting up the $FILE file"
+    echo "[info] Setting up the $FILE file."
     cat > "$FILE" <<EOF
 IMAGE_TAG=$IMAGE_TAG
 
@@ -49,7 +51,7 @@ JUDGE_KEY=<Define the judge key here>
 PROBLEMS_DIR=$PROBLEMS_DIR
 EOF
     else
-      echo "-> The $FILE file exists"
+      echo "[warn] The $FILE file exists."
     fi
 done
 
