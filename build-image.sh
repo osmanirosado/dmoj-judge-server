@@ -20,3 +20,6 @@ EOF
 OUTPUT_FILE=build-image.out
 echo "[info] Running the docker compose build command in background. See the output in the '${OUTPUT_FILE}' file."
 nohup docker-compose build --pull > ${OUTPUT_FILE} &
+
+# wait for message from nohup to be written in terminal
+sleep 2s
