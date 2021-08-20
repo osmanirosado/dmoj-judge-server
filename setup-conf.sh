@@ -17,14 +17,3 @@ EOF
 else
     echo "[warn] The file $CONF_FILE exits."
 fi
-
-CONF_FILE='build-image.conf'
-if [[ ! -f "$CONF_FILE" ]]
-then
-    echo "[info] Creating the file $CONF_FILE."
-    cat > "$CONF_FILE" <<EOF
-IMAGE_TAG=new
-EOF
-else
-    echo "[warn] The file $CONF_FILE exits."
-fi
