@@ -16,6 +16,7 @@ if [[ ! -f "$FILE" ]]
 then
     echo "[info] Setting up the $FILE file"
     cat > .env <<EOF
+IMAGE_NAME=$IMAGE_NAME
 IMAGE_TAG=$IMAGE_TAG
 
 EOF
@@ -41,6 +42,7 @@ do
     then
     echo "[info] Setting up the $FILE file."
     cat > "$FILE" <<EOF
+IMAGE_NAME=$IMAGE_NAME
 IMAGE_TAG=$IMAGE_TAG
 
 BRIDGE_ADDRESS=$BRIDGE_ADDRESS

@@ -10,6 +10,7 @@ then
 JUDGE_NUMBER=3
 JUDGE_NAME_PREFIX='main-judge-'
 
+IMAGE_NAME=dmoj/judge-tier3
 IMAGE_TAG=latest
 BRIDGE_ADDRESS=10.12.101.21
 PROBLEMS_DIR=/mnt/dmoj/problems
