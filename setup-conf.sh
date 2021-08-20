@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")" || exit 1
 
-CONF_FILE='init-judges.conf'
+CONF_FILE='judges.conf'
 if [[ ! -f "$CONF_FILE" ]]
 then
     echo "[info] Creating the file $CONF_FILE."
