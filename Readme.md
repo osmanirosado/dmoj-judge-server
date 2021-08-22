@@ -84,3 +84,13 @@ judge1dc up -d
 ```shell
 judge1dc logs -f
 ```
+
+## Recreate the judges
+
+1. Recreate the judges to use the latest image.
+
+```shell
+perl recreate-judges.pl
+```
+
+If a judge is not running, it is starting during this process.
