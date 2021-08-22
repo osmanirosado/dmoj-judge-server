@@ -13,13 +13,13 @@ while (<ALIASES>) {
         my $command = $2;
         my @command = split /\s+/, $command;
 
-        #system(@command, 'ps');
         say("[info] Recreating a judge using the alias: '$alias' ...");
         system(@command, 'up', '--detach', '--force-recreate', '--no-build') == 0
             or die('[error] Non zero exit code');
 
         say("[info] Waiting for judge connection ...");
-        open(LOG, "$command logs -f |");
+        open(LOG, "$command logs -f |")
+            or die('[error] Fail executing the command and opening the pipe');
 
         my $state = 1;
         my $lines_read = 0;
@@ -39,14 +39,12 @@ while (<ALIASES>) {
                 last;
             }
             elsif ($state > 1 and m/ERROR/) {
-                $state = 5;
                 close(LOG);
                 say('[error] Judge connection failed');
                 last;
             }
 
             if (++$lines_read == $lines_limit) {
-                $state = 6;
                 say("[error] The pattern was not found in the first $lines_limit lines");
                 last;
             }
