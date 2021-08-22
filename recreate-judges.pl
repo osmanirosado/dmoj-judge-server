@@ -45,13 +45,16 @@ while (<ALIASES>) {
                 last;
             }
 
-            if(++$lines_read == $lines_limit){
+            if (++$lines_read == $lines_limit) {
                 $state = 6;
                 say("[error] The pattern was not found in the first $lines_limit lines");
                 last;
             }
         }
 
-        last if ($state != 4)
+        if ($state != 4) {
+            say("[warn] Stop recreating the judges");
+            last;
+        }
     }
 }
