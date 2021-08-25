@@ -8,7 +8,7 @@ my $aliases_file = 'bash_aliases';
 
 open(ALIASES, '<', $aliases_file);
 while (<ALIASES>) {
-    if (/alias\s+(.+)=['"](.+)['"]/) {
+    if (/^\s*alias\s+(.+)=['"](.+)['"]/) {
         my $alias = $1;
         my $command = $2;
         my @command = split /\s+/, $command;
