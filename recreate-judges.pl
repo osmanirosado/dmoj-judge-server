@@ -30,9 +30,11 @@ while (<ALIASES>) {
             if ($state == 1 and m/Running live judge/) {
                 $state = 2;
             }
+            # https://regex101.com/r/GGA92E/1
             elsif ($state == 2 and m/INFO .+ Preparing to connect to .+ as:/) {
                 $state = 3;
             }
+            # https://regex101.com/r/YHtq5p/1
             elsif ($state == 3 and m/INFO .+ Judge ".+" online/) {
                 $state = 4;
                 close(LOG);
