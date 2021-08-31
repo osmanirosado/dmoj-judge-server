@@ -8,9 +8,10 @@ my $aliases_file = 'bash_aliases';
 
 open(ALIASES, '<', $aliases_file);
 while (<ALIASES>) {
-    if (/^\s*alias\s+(.+)=['"](.+)['"]/) {
+    # https://regex101.com/r/OwTi7g/2
+    if (/^\s*alias\s+(.+)=(?<quotation_mark>['"])(.+)(?P=quotation_mark)/) {
         my $alias = $1;
-        my $command = $2;
+        my $command = $3;
         my @command = split /\s+/, $command;
 
         say("[info] Recreating a judge using the alias: '$alias' ...");
