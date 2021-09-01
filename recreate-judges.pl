@@ -22,12 +22,23 @@ while (<ALIASES>) {
         open(LOG, "$command logs -f |")
             or die('[error] Fail executing the command and opening the pipe');
 
-        my $state = 1;
+        my $state = 0;
         my $lines_read = 0;
         my $lines_limit = 100;
         while (<LOG>) {
             print();
-            if ($state == 1 and m/Running live judge/) {
+            if ($state == 0 and m/Self-testing executors/) {
+                $state = 1
+            }
+            # https://regex101.com/r/k6xvjM/1
+            elsif ($state == 1 and m/Self-testing .+: (.+) \[.+,.+\] .+/x) {
+                if (! $1 =~ /Success/) {
+                    close(LOG);
+                    say('[error] Tests failed for a language runtime');
+                    last;
+                }
+            }
+            elsif ($state == 1 and m/Running live judge/) {
                 $state = 2;
             }
             # https://regex101.com/r/GGA92E/1
