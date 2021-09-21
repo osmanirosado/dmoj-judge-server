@@ -6,7 +6,7 @@ use v5.10;
 
 my $aliases_file = 'bash_aliases';
 
-system("bash", "tag-image-to-use.sh") or die('[error] Image tagging failed');
+system("bash", "tag-image-to-use.sh") == 0 or die('[error] Image tagging failed');
 
 open(ALIASES, '<', $aliases_file);
 while (<ALIASES>) {
