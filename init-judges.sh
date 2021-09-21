@@ -10,7 +10,7 @@ then
     echo "[info] Setting up the $FILE file"
     cat > .env <<EOF
 IMAGE_NAME=$IMAGE_NAME
-IMAGE_TAG=$IMAGE_TAG
+IMAGE_TAG=$IMAGE_TAG_BUILD
 
 EOF
 else
@@ -36,7 +36,7 @@ do
     echo "[info] Setting up the $FILE file."
     cat > "$FILE" <<EOF
 IMAGE_NAME=$IMAGE_NAME
-IMAGE_TAG=$IMAGE_TAG
+IMAGE_TAG=$IMAGE_TAG_USE
 
 BRIDGE_ADDRESS=$BRIDGE_ADDRESS
 
