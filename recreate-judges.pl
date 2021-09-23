@@ -6,8 +6,6 @@ use v5.10;
 
 my $aliases_file = 'bash_aliases';
 
-system("bash", "tag-image-to-use.sh") == 0 or die('[error] Image tagging failed');
-
 open(ALIASES, '<', $aliases_file);
 while (<ALIASES>) {
     # https://regex101.com/r/OwTi7g/2

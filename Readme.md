@@ -87,7 +87,13 @@ judge1dc logs -f
 
 ## Recreate the judges
 
-1. Recreate the judges to use the latest image.
+1. Tag the latest image with the `inuse` tag.
+
+```shell
+bash tag-image-to-use.sh
+```
+
+2. Recreate the judges to use the latest image.
 
 ```shell
 perl recreate-judges.pl
