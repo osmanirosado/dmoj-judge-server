@@ -7,13 +7,13 @@ Docker compose stack for running the [dmoj judge](https://github.com/DMOJ/judge-
 1. Generate the configuration files for the scripts.
 
 ```shell
-bash setup-conf.sh
+bash setup-judges-config.sh
 ```
 
 2. Generate the environment files (`.env`) and the aliases.
 
 ```shell
-bash init-judges.sh
+bash init-judges-files.sh
 ```
 
 The default configuration for this command can be changed in the `init-judges.conf` file.
@@ -87,10 +87,10 @@ judge1dc logs -f
 
 ## Recreate the judges
 
-1. Tag the latest image with the `inuse` tag.
+1. Tag the latest image as active.
 
 ```shell
-bash tag-image-to-use.sh
+bash tag-latest-image-as-active.sh
 ```
 
 2. Recreate the judges to use the latest image.

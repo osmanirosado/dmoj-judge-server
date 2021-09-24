@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")" || exit 1
 
-source load-conf.sh
+source load-judges-config.sh
 
 FILE=".env"
 if [[ ! -f "$FILE" ]]
@@ -36,7 +36,7 @@ do
     echo "[info] Setting up the $FILE file."
     cat > "$FILE" <<EOF
 IMAGE_NAME=$IMAGE_NAME
-IMAGE_TAG=$IMAGE_TAG_USE
+IMAGE_TAG=$IMAGE_TAG_ACTIVE
 
 BRIDGE_ADDRESS=$BRIDGE_ADDRESS
 
