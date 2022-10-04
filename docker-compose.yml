@@ -4,6 +4,8 @@ services:
     build:
       dockerfile: Dockerfile
       context: .
+      args:
+        - HTTP_PROXY=${HTTP_PROXY}
     image: ${IMAGE_NAME:-dmoj/judge-tier3}:${IMAGE_TAG:-latest}
     cap_add:
       - SYS_PTRACE
