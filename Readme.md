@@ -39,7 +39,7 @@ cat < bash_aliases >> ~/.bash_aliases
 ```
 
 For example, the alias `judge1dc` allows the execution of the 
-`docker-compose` command in the environment of the judge one.
+`docker compose` command in the environment of the judge one.
 
 ## Build
 
@@ -47,13 +47,13 @@ For example, the alias `judge1dc` allows the execution of the
 modify the environment variable in the `.env` file.
 
 ```shell
-docker-compose build --pull
+docker compose build --pull
 ```
 
 2. Run the judge tests.
 
 ```shell
-docker-compose run app test
+docker compose run app test
 ```
 
 This command runs the available tests for each language run time. 
