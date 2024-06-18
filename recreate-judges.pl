@@ -27,7 +27,7 @@ while (<ALIASES>) {
         my $lines_limit = 100;
         while (<LOG>) {
             print();
-            if ($state == 0 and m/Self-testing executors/) {
+            if ($state == 0 and (m/Self-testing executors/ or m/Skipped self-tests/)) {
                 $state = 1
             }
             # https://regex101.com/r/k6xvjM/1
