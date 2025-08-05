@@ -9,6 +9,8 @@ if [[ ! -f "$FILE" ]]
 then
     echo "[info] Setting up the $FILE file"
     cat > .env <<EOF
+BASE_IMAGE=$BASE_IMAGE
+
 IMAGE_NAME=$IMAGE_NAME
 IMAGE_TAG=$IMAGE_TAG_BUILD
 
