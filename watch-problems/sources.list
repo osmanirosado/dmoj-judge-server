@@ -1,6 +1,4 @@
 
-deb http://repos.uclv.edu.cu/ubuntu bionic main restricted universe multiverse
-deb http://repos.uclv.edu.cu/ubuntu bionic-updates main restricted universe multiverse
-deb http://repos.uclv.edu.cu/ubuntu bionic-security main restricted universe multiverse
-deb http://repos.uclv.edu.cu/ubuntu bionic-backports main restricted universe multiverse
-deb http://repos.uclv.edu.cu/ubuntu bionic-proposed main restricted universe multiverse
+deb http://repos.uclv.edu.cu/debian/ bookworm main non-free-firmware
+deb http://repos.uclv.edu.cu/debian/ bookworm-updates main non-free-firmware
+deb http://repos.uclv.edu.cu/debian-security bookworm-security main non-free-firmware
