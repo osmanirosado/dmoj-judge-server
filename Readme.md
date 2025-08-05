@@ -10,6 +10,8 @@ Docker compose stack for running the [dmoj judge](https://github.com/DMOJ/judge-
 bash setup-judges-config.sh
 ```
 
+Review the generated configuration file `judges.conf`.
+
 2. Generate the environment files (`.env`) and the aliases.
 
 ```shell
@@ -47,7 +49,7 @@ For example, the alias `judge1dc` allows the execution of the
 modify the environment variable in the `.env` file.
 
 ```shell
-docker compose build --pull
+docker compose build
 ```
 
 2. Run the judge tests.
@@ -57,6 +59,12 @@ docker compose run app test
 ```
 
 This command runs the available tests for each language run time. 
+
+3. Tag the latest image as active.
+
+```shell
+bash tag-latest-image-as-active.sh
+```
 
 ## Judge
 
