@@ -18,7 +18,7 @@ IMAGE_TAG_ACTIVE=active
 
 BRIDGE_ADDRESS=10.12.101.21
 
-PROBLEMS_DIR=/mnt/dmoj/problems
+PROBLEMS_DIR=/var/opt/lib/dmoj/problems
 EOF
 else
     echo "[warn] The file $CONF_FILE exits."

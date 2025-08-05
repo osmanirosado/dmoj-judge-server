@@ -5,7 +5,7 @@ services:
     image: ${IMAGE:-uclv-judge-tier3:active}
     command: run --skip-self-test -c /judge.yml "${BRIDGE_ADDRESS:-10.12.101.21}" "$JUDGE_NAME" "$JUDGE_KEY"
     volumes:
-      - ${PROBLEMS_DIR:-/mnt/dmoj/problems}:/problems:ro
+      - ${PROBLEMS_DIR:-/var/opt/lib/dmoj/problems}:/problems:ro
     cap_add:
       - SYS_PTRACE
     restart: unless-stopped

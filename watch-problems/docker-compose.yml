@@ -5,5 +5,5 @@ services:
       context: .
     command: inotifywait -m -r -e modify,move,create,delete /problems
     volumes:
-      - ${PROBLEMS_DIR:-/mnt/dmoj/problems}:/problems:ro
+      - ${PROBLEMS_DIR:-/var/opt/lib/dmoj/problems}:/problems:ro
     restart: unless-stopped
