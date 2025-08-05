@@ -2,7 +2,7 @@ name: ${JUDGE_NAME}
 
 services:
   app:
-    image: ${IMAGE_NAME:-uclv-judge-tier3}:${IMAGE_TAG:-latest}
+    image: ${IMAGE:-uclv-judge-tier3:active}
     command: run --skip-self-test -c /judge.yml "${BRIDGE_ADDRESS:-10.12.101.21}" "$JUDGE_NAME" "$JUDGE_KEY"
     volumes:
       - ${PROBLEMS_DIR:-/mnt/dmoj/problems}:/problems:ro

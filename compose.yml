@@ -5,6 +5,6 @@ services:
       context: .
       args:
         - BASE_IMAGE=${BASE_IMAGE}
-    image: ${IMAGE_NAME:-uclv-judge-tier3}:${IMAGE_TAG:-latest}
+    image: ${IMAGE:-uclv-judge-tier3:latest}
     cap_add:
       - SYS_PTRACE
