@@ -25,7 +25,9 @@ echo "" > $ALIASES_FILE
 for ((i = 1 ; i <= "$JUDGE_NUMBER" ; i++))
 do
     NAME="judge-$i"
-    cat >>"$ALIASES_FILE" <<<"alias judge${i}dc='sudo docker compose --project-directory $PWD/$NAME -f $PWD/judge.yml'"
+    JUDGE_NAME="${JUDGE_NAME_PREFIX}$i"
+
+    cat >>"$ALIASES_FILE" <<<"alias ${JUDGE_NAME}-dc='sudo docker compose --project-directory $PWD/$NAME -f $PWD/judge.yml'"
 
     mkdir -p "$NAME"
 
@@ -42,7 +44,7 @@ IMAGE_TAG=$IMAGE_TAG_ACTIVE
 
 BRIDGE_ADDRESS=$BRIDGE_ADDRESS
 
-JUDGE_NAME=${JUDGE_NAME_PREFIX}$i
+JUDGE_NAME=${JUDGE_NAME}
 JUDGE_KEY=<Define the judge key here>
 
 PROBLEMS_DIR=$PROBLEMS_DIR
