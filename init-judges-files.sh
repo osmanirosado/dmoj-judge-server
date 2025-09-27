@@ -35,8 +35,13 @@ do
     FILE="$NAME/.dockerignore" && test ! -f "$FILE" && cat > "$FILE" <<<'*'
 
     FILE="$NAME/.env"
-    if [[ ! -f "$FILE" ]]
+    JUDGE_KEY=''
+    if [[ -f "$FILE" ]]
     then
+      # Extract JUDGE_KEY value only (handles quotes, simple assignments)
+      JUDGE_KEY=$(awk -F= '/^JUDGE_KEY[[:space:]]*=/{sub(/^[^=]*=[[:space:]]*/,"",$0); gsub(/^[ \t]*"|"[ \t]*$/,"",$0); print $0; exit}' "$FILE")
+    fi
+
     echo "[info] Setting up the $FILE file."
     cat > "$FILE" <<EOF
 PROJECT_NAME=${PROJECT_NAME}
@@ -47,13 +52,11 @@ BRIDGE_ADDRESS=$BRIDGE_ADDRESS
 
 JUDGE_NAME=${JUDGE_NAME}
 # Define the judge key here
-JUDGE_KEY=''
+JUDGE_KEY=${JUDGE_KEY}
 
 PROBLEMS_DIR=$PROBLEMS_DIR
 EOF
-    else
-      echo "[warn] The $FILE file exists."
-    fi
+
 done
 
 exit 0
