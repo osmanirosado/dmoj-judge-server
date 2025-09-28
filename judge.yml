@@ -3,7 +3,7 @@ name: ${PROJECT_NAME}
 services:
   app:
     image: ${IMAGE:-uclv-judge-tier3:active}
-    command: run --skip-self-test -c /judge.yml "${BRIDGE_ADDRESS:-10.12.101.21}"
+    command: run --skip-self-test "${BRIDGE_ADDRESS:-10.12.101.21}"
     environment:
       DMOJ_JUDGE_NAME: "$JUDGE_NAME"
       DMOJ_JUDGE_KEY: "$JUDGE_KEY"
