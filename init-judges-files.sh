@@ -31,8 +31,8 @@ do
 
     mkdir -p "$NAME"
 
-    FILE="$NAME/.gitignore" && test ! -f "$FILE" && cat > "$FILE" <<<'*'
-    FILE="$NAME/.dockerignore" && test ! -f "$FILE" && cat > "$FILE" <<<'*'
+    FILE="$NAME/.gitignore"      && test ! -f "$FILE" && echo '*' > "$FILE"
+    FILE="$NAME/.dockerignore"   && test ! -f "$FILE" && echo '*' > "$FILE"
 
     FILE="$NAME/.env"
     JUDGE_KEY=''
