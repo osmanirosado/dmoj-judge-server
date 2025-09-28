@@ -5,7 +5,7 @@ services:
     image: ${IMAGE:-uclv-judge-tier3:active}
     command: run --skip-self-test "${BRIDGE_ADDRESS:-10.12.101.21}"
     environment:
-      DMOJ_JUDGE_NAME: "$JUDGE_NAME"
+      DMOJ_JUDGE_NAME:
     env_file:
       - .key
     volumes:
