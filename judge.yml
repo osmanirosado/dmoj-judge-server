@@ -6,7 +6,8 @@ services:
     command: run --skip-self-test "${BRIDGE_ADDRESS:-10.12.101.21}"
     environment:
       DMOJ_JUDGE_NAME: "$JUDGE_NAME"
-      DMOJ_JUDGE_KEY: "$JUDGE_KEY"
+    env_file:
+      - .key
     volumes:
       - ${PROBLEMS_DIR:-/var/opt/lib/dmoj/problems}:/problems:ro
     cap_add:

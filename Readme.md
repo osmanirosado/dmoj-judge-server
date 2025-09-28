@@ -68,8 +68,8 @@ bash tag-latest-image-as-active.sh
 
 ## Judge
 
-1. Define the judge key in the `.env` file for the judge one 
-and review the other environment variables.
+1. Define the judge key in the `.key` file and 
+review the environment variables in the `.env` filek.
 
 ```shell
 nano judge1/.env 
