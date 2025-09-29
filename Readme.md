@@ -55,7 +55,7 @@ docker compose build
 2. Run the judge tests.
 
 ```shell
-docker compose run app test
+docker compose run --rm app test
 ```
 
 This command runs the available tests for each language run time. 
