@@ -25,7 +25,7 @@ JUDGE_KEY_FILE=".key"
 
 for ((i = 1 ; i <= "$JUDGE_NUMBER" ; i++))
 do
-    NAME="judge-$i"
+    NAME="judge$i"
     JUDGE_NAME="${JUDGE_NAME_PREFIX}$i"
     PROJECT_NAME="${PROJECT_NAME_PREFIX}$i"
 
