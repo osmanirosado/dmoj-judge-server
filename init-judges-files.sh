@@ -5,18 +5,13 @@ cd "$(dirname "$0")" || exit 1
 source load-judges-config.sh
 
 FILE=".env"
-if [[ ! -f "$FILE" ]]
-then
-    echo "[info] Setting up the $FILE file"
-    cat > .env <<EOF
+echo "[info] Setting up the $FILE file"
+cat > .env <<EOF
 BASE_IMAGE=$BASE_IMAGE
 
 IMAGE=$IMAGE_NAME:$IMAGE_TAG_BUILD
 
 EOF
-else
-    echo "[warn] The $FILE file exists"
-fi
 
 ALIASES_FILE=bash_aliases
 echo "" > $ALIASES_FILE
