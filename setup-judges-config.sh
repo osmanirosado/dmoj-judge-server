@@ -9,7 +9,7 @@ then
     cat > "$CONF_FILE" <<EOF
 JUDGE_NUMBER=3
 JUDGE_NAME_PREFIX='Arcadia-'
-PROJECT_NAME_PREFIX='arcadia-'
+PROJECT_NAME_PREFIX='arcadia'
 
 BASE_IMAGE='dmoj/judge-tier3:latest'
 
