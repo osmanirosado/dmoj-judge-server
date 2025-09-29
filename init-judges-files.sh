@@ -29,7 +29,7 @@ do
     JUDGE_NAME="${JUDGE_NAME_PREFIX}$i"
     PROJECT_NAME="${PROJECT_NAME_PREFIX}$i"
 
-    cat >>"$ALIASES_FILE" <<<"alias ${PROJECT_NAME}-dc='sudo docker compose --project-directory $PWD/$NAME -f $PWD/judge.yml'"
+    cat >>"$ALIASES_FILE" <<<"alias ${PROJECT_NAME}dc='sudo docker compose --project-directory $PWD/$NAME -f $PWD/judge.yml'"
 
     mkdir -p "$NAME"
 
