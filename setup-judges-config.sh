@@ -17,7 +17,7 @@ IMAGE_NAME=uclv-judge-tier3
 IMAGE_TAG_BUILD=latest
 IMAGE_TAG_ACTIVE=active
 
-BRIDGE_ADDRESS=10.12.101.21
+BRIDGE_ADDRESS=
 
 PROBLEMS_DIR=/var/opt/lib/dmoj/problems
 EOF
