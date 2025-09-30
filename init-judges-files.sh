@@ -9,7 +9,7 @@ echo "[info] Setting up the $FILE file"
 cat > .env <<EOF
 BASE_IMAGE=$BASE_IMAGE
 
-IMAGE=$IMAGE_NAME:$IMAGE_TAG_BUILD
+IMAGE=$IMAGE_NAME:$IMAGE_TAG_LATEST
 
 EOF
 
