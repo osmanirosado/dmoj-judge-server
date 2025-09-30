@@ -13,7 +13,7 @@ PROJECT_NAME_PREFIX=arcadia
 
 BASE_IMAGE=dmoj/judge-tier3:latest
 
-IMAGE_NAME=uclv-judge-tier3
+IMAGE_NAME=local-judge-tier3
 IMAGE_TAG_LATEST=latest
 IMAGE_TAG_ACTIVE=active
 
