@@ -20,16 +20,16 @@ JUDGE_KEY_FILE=".key"
 
 for ((i = 1 ; i <= "$JUDGE_NUMBER" ; i++))
 do
-    NAME="judge$i"
+    BASE_DIR='dmoj'
+    NAME="$BASE_DIR/judge$i"
     JUDGE_NAME="${JUDGE_NAME_PREFIX}$i"
     PROJECT_NAME="${PROJECT_NAME_PREFIX}$i"
 
-    cat >>"$ALIASES_FILE" <<<"alias ${PROJECT_NAME}dc='sudo docker compose --project-directory $PWD/$NAME -f $PWD/judge.yml'"
+    cat >>"$ALIASES_FILE" <<<"alias ${PROJECT_NAME}dc='sudo docker compose --project-directory $PWD/$NAME -f $PWD/$BASE_DIR/compose.yml'"
 
     mkdir -p "$NAME"
 
     FILE="$NAME/.gitignore"      && test ! -f "$FILE" && echo '*' > "$FILE"
-    FILE="$NAME/.dockerignore"   && test ! -f "$FILE" && echo '*' > "$FILE"
     FILE="$NAME/$JUDGE_KEY_FILE" && test ! -f "$FILE" && echo 'DMOJ_JUDGE_KEY=' > "$FILE"
 
     FILE="$NAME/.env"
