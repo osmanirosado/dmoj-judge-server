@@ -61,7 +61,7 @@ Docker compose stack for running the [dmoj judge](https://github.com/DMOJ/judge-
 review the environment variables in the `.env` file.
 
     ```shell
-    nano judge1/.env 
+    nano dmoj/judge1/.key
     ```
 
 2. Review the environment variables substitution in the docker compose.
