@@ -29,7 +29,7 @@ do
 
     mkdir -p "$NAME"
 
-    FILE="$NAME/.gitignore"      && test ! -f "$FILE" && echo '*' > "$FILE"
+    #FILE="$NAME/.gitignore"      && test ! -f "$FILE" && echo '*' > "$FILE"
     FILE="$NAME/$JUDGE_KEY_FILE" && test ! -f "$FILE" && echo 'DMOJ_JUDGE_KEY=' > "$FILE"
 
     FILE="$NAME/.env"
