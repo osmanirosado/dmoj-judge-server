@@ -32,6 +32,8 @@ do
     #FILE="$NAME/.gitignore"      && test ! -f "$FILE" && echo '*' > "$FILE"
     FILE="$NAME/$JUDGE_KEY_FILE" && test ! -f "$FILE" && echo 'DMOJ_JUDGE_KEY=' > "$FILE"
 
+    FILE="$NAME/compose.yml" && ln -s -r "$BASE_DIR/compose.yml" $FILE
+
     FILE="$NAME/.env"
     echo "[info] Setting up the $FILE file."
     cat > "$FILE" <<EOF
