@@ -16,8 +16,6 @@ EOF
 ALIASES_FILE=bash_aliases
 echo "" > $ALIASES_FILE
 
-JUDGE_KEY_FILE=".key"
-
 for ((i = 1 ; i <= "$JUDGE_NUMBER" ; i++))
 do
     BASE_DIR='dmoj'
@@ -30,7 +28,7 @@ do
     mkdir -p "$JUDGE_DIR"
 
     #FILE="$JUDGE_DIR/.gitignore"      && test ! -f "$FILE" && echo '*' > "$FILE"
-    FILE="$JUDGE_DIR/$JUDGE_KEY_FILE" && test ! -f "$FILE" && echo 'DMOJ_JUDGE_KEY=' > "$FILE"
+    FILE="$JUDGE_DIR/.key" && test ! -f "$FILE" && echo 'DMOJ_JUDGE_KEY=' > "$FILE"
 
     FILE="$JUDGE_DIR/compose.yml" && ln -s -r "$BASE_DIR/compose.yml" $FILE
 
