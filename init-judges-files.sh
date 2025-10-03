@@ -27,7 +27,6 @@ do
 
     mkdir -p "$JUDGE_DIR"
 
-    #FILE="$JUDGE_DIR/.gitignore"      && test ! -f "$FILE" && echo '*' > "$FILE"
     FILE="$JUDGE_DIR/.key" && test ! -f "$FILE" && echo 'DMOJ_JUDGE_KEY=' > "$FILE"
 
     ln -s -r "$BASE_DIR/compose.yml" "$JUDGE_DIR/compose.yml"
