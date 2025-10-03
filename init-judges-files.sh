@@ -21,20 +21,20 @@ JUDGE_KEY_FILE=".key"
 for ((i = 1 ; i <= "$JUDGE_NUMBER" ; i++))
 do
     BASE_DIR='dmoj'
-    NAME="$BASE_DIR/judge$i"
+    JUDGE_DIR="$BASE_DIR/judge$i"
     JUDGE_NAME="${JUDGE_NAME_PREFIX}$i"
     PROJECT_NAME="${PROJECT_NAME_PREFIX}$i"
 
-    cat >>"$ALIASES_FILE" <<<"alias ${PROJECT_NAME}dc='sudo docker compose --project-directory $PWD/$NAME -f $PWD/$BASE_DIR/compose.yml'"
+    cat >>"$ALIASES_FILE" <<<"alias ${PROJECT_NAME}dc='sudo docker compose --project-directory $PWD/$JUDGE_DIR -f $PWD/$BASE_DIR/compose.yml'"
 
-    mkdir -p "$NAME"
+    mkdir -p "$JUDGE_DIR"
 
-    #FILE="$NAME/.gitignore"      && test ! -f "$FILE" && echo '*' > "$FILE"
-    FILE="$NAME/$JUDGE_KEY_FILE" && test ! -f "$FILE" && echo 'DMOJ_JUDGE_KEY=' > "$FILE"
+    #FILE="$JUDGE_DIR/.gitignore"      && test ! -f "$FILE" && echo '*' > "$FILE"
+    FILE="$JUDGE_DIR/$JUDGE_KEY_FILE" && test ! -f "$FILE" && echo 'DMOJ_JUDGE_KEY=' > "$FILE"
 
-    FILE="$NAME/compose.yml" && ln -s -r "$BASE_DIR/compose.yml" $FILE
+    FILE="$JUDGE_DIR/compose.yml" && ln -s -r "$BASE_DIR/compose.yml" $FILE
 
-    FILE="$NAME/.env"
+    FILE="$JUDGE_DIR/.env"
     echo "[info] Setting up the $FILE file."
     cat > "$FILE" <<EOF
 PROJECT_NAME=$PROJECT_NAME
